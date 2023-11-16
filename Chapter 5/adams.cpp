@@ -87,11 +87,11 @@ vector<pair<db, db>> adams(db a, db b, db initial_condition, db TOL, db hmax, db
 }
 
 int main() {
-    db a = 0, b = 0.5, initial_condition = 0;
-    db TOL = 1E-4, hmin = 0.01, hmax = 0.1;
-    function<db(db,db)> f = [](db t, db y) { return sin(t) + exp(-t); };
+    db a = 0, b = 1, initial_condition = exp(1);
+    db TOL = 1E-4, hmin = 0.05, hmax = 0.2;
+    function<db(db,db)> f = [](db t, db y) { return -y * 10 + t * 10 + db(1); };
     each(p, adams(a, b, initial_condition, TOL, hmax, hmin, f)) {
-        cout << p.f << ", " << p.s << endl;
+        cout << fixed << setprecision(5) << p.f << ' ' << p.s << ' ' << exp(-p.f * 10 + 1) + p.f << endl;
     }
     return 0;
 }
