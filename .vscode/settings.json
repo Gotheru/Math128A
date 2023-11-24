@@ -4,6 +4,7 @@
     "files.associations": {
         "random": "cpp",
         "format": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "iostream": "cpp"
     }
 }
